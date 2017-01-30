@@ -1,0 +1,34 @@
+class Stardust {
+	visible static final String VERSION = "0.1.0"
+
+	public construct(String[] args) {
+		if (args.count == 0) {
+			Console.writeLine("Stardust v#VERSION")
+
+			System.exit(0)
+		}
+
+		let command = args.first.toLowerCase()
+
+		match (command) {
+			case "install" install(args.skip(1))
+			default {
+				Console.writeLine("Invalid command '#command'")
+
+				System.exit(1)
+			}
+		}
+	}
+
+	public static main(String[] args) {
+		args = args.skip(1)
+
+		let dust = new Stardust(args)
+	}
+
+	public install(String[] args) {
+		Console.writeLine("Installing... #args")
+
+		// do stuff
+	}
+}
